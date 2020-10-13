@@ -19,8 +19,9 @@ class DataSource {
     public static List<Device> devices = Lists.newArrayList(
             new Device(1, "refrigerator", "Miele", "Retro1999", Device.EnergyRating.A_3PLUS, 2000, 45, false, 500, 2),
             new Device(2, "washer", "Bosch", "AX-12", Device.EnergyRating.A_2PLUS, 1800, 43, false, 900, 5),
-            new Device(3, "mixer", "Bosch", "KER", Device.EnergyRating.A_2PLUS, 400, 33, true, 90, 10)
-    );
+            new Device(3, "mixer", "Bosch", "KER", Device.EnergyRating.A_2PLUS, 400, 33, true, 90, 10),
+            new Device(4, "toaster", "Elektrolux", "AS-18LM", Device.EnergyRating.A ,500, 12, true, 70, 30)
+            );
 
     public static List<Order> orders = Lists.newArrayList();
 }

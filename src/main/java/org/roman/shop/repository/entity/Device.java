@@ -5,13 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Data
 @Accessors(chain = true)
-@NoArgsConstructor
 @AllArgsConstructor
 public class Device {
 
-    int id;
+    private static AtomicInteger nextId = new AtomicInteger(100);
+
+    private final long id;
     String type;
 
     String manufacture;
@@ -23,6 +26,15 @@ public class Device {
     boolean portable;
     double price;
     int quantity;
+
+    public Device() {
+//        this.id = getNextUniqueId();
+        this.id = nextId.getAndIncrement();
+    }
+
+    public static long getNextUniqueId() {
+        return System.currentTimeMillis() % 1_000_000;
+    }
 
     public enum EnergyRating {
         A("A"),

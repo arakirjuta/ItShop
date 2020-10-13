@@ -1,5 +1,6 @@
 package org.roman.shop.repository;
 
+import org.roman.shop.repository.entity.Customer;
 import org.roman.shop.repository.entity.Device;
 
 import java.util.List;
@@ -7,6 +8,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class DeviceRepository {
+
+    public List<Device> findAll() {
+        return DataSource.devices;
+    }
 
     public List<Device> findAllCheaperThen(double price) {
         return DataSource.devices
@@ -29,4 +34,10 @@ public class DeviceRepository {
                 .filter(x -> x.getId() == id)
                 .findFirst();
     }
+
+    public static void saveDevice(Device device) {
+        DataSource.devices.add(device);
+    }
+
 }
+
